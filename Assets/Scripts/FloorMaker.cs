@@ -22,7 +22,7 @@ public class FloorMaker : MonoBehaviour
 		{
 			float random = Random.Range(0f,1f);
 			if(random < .25f) transform.rotation += Quaternion.Euler(0,0,90);
-			else if(random < .5f) += Quaternion.Euler(0,0,-90);
+			else if(random < .5f) transform.rotation += Quaternion.Euler(0,0,-90);
 			if(number > .99f) Instantiate(floorMakerPrefab, transform.position, Quaternion.Identity);
 			Instantiate(floorPrefab, transform.position, Quaternion.Identity);
 			transform.position += transform.up; //already normalized
