@@ -2,35 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// instructions for students: clone this project, open the VlambeerLabScene, and then start working on this script
-// based on: Vlambeer's level generation system for Nuclear Throne https://indienova.com/u/root/blogread/1766
+//https://indienova.com/u/root/blogread/1766
 
-public class FloorMaker : MonoBehaviour {
+public class FloorMaker : MonoBehaviour
+{
+	public Transform floorPrefab;
+	public Transform floorMakerPrefab;
 
-// STEP 1: ===================================================================================
-// translate the basic pseudocode here into C#
+	int myCounter; //how many tiles have we instantiated?
 
-//	DECLARE CLASS MEMBER VARIABLES:
-//	Declare a private integer called myCounter that starts at 0; 		// count how many floor tiles this FloorMaker has instantiated
-//	Declare a public Transform called floorPrefab, assign the prefab in inspector;
-//	Declare a public Transform called floorMakerPrefab, assign the prefab in inspector; 
-
-	void Update () {
-//		If counter is less than 50, then:
-//			Generate a random number from 0.0f to 1.0f;
-//			If random number is less than 0.25f, then rotate myself 90 degrees on Z axis;
-//				... Else if number is 0.25f-0.5f, then rotate myself -90 degrees on Z axis;
-//				... Else if number is 0.99f-1.0f, then instantiate a floorMakerPrefab clone at my current position;
-//			// end elseIf
-
-//			Instantiate a floorPrefab clone at current position;
-//			Move 1 unit "upwards" based on this object's local rotation (e.g. with rotation 0,0,0 "upwards" is (0,1,0)... but with rotation 0,0,180 then "upwards" is (0,-1, 0)... )
-//			Increment counter;
-//		Else:
-//			Destroy my game object; 		// self destruct if I've made enough tiles already
+	void Start()
+	{
+		myCounter = 0;
 	}
 
-} // don't delete, end of FloorMaker class
+	void Update ()
+	{
+		if(myCounter < 50)
+		{
+			float random = Random.Range(0f,1f);
+			if(random < .25f) transform.rotation += Quaternion.Euler(0,0,90);
+			else if(random < .5f) += Quaternion.Euler(0,0,-90);
+			if(number > .99f) Instantiate(floorMakerPrefab, transform.position, Quaternion.Identity);
+			Instantiate(floorPrefab, transform.position, Quaternion.Identity);
+			transform.position += transform.up; //already normalized
+			myCounter++;
+		}
+		else Destroy(this.gameObject);
+	}
+}
 
 
 // STEP 2: =====================================================================================
