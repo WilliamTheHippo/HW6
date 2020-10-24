@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5378c783021624995364905960b49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorPrefab: {fileID: 8979439212572352807, guid: 4348ebabc3612614f8c839ff067102c7,
+    type: 3}
+  floorMakerPrefab: {fileID: 1205195299569171216}
+  percentTileChance: 5
+  maxTiles: 50
 --- !u!212 &6343382058574851184
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84,7 +89,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: aa396a1763c729a4ca1ec1cce3485c86, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.504, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
