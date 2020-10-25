@@ -1,4 +1,8 @@
-# nyu_vlambeerMazeLab2D
+# HW6
+
+Basic procedural generation code, forked from existing demo.
+
+## nyu_vlambeerMazeLab2D
 intro to procedural generation activity for Intermediate Game Development course at NYU Game Center
 
 ![](http://www.vlambeer.com/wp-content/uploads/2013/04/level3.gif)
