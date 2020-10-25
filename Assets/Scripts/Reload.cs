@@ -16,12 +16,7 @@ public class Reload : MonoBehaviour
 		);
 	}
 
-	void Update()
-	{
-		if(Input.GetKey(KeyCode.R)) ReloadScene();
-	}
-
-	void ReloadScene()
+	public static void ReloadScene()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		FloorMaker.GLOBAL_TILE_COUNT = 0;
