@@ -18,9 +18,15 @@ public class ValueStore : MonoBehaviour
 
 	public List<Transform> tileList;
 
+	public Sprite easterEgg;
+	public bool easterEggActive;
+	bool easterEggFlag;
+
 	public void Start()
 	{
 		started = false;
+		easterEggFlag = false;
+		easterEggActive = false;
 		tileList = new List<Transform>();
 	}
 
@@ -32,6 +38,8 @@ public class ValueStore : MonoBehaviour
 
 	public void Update()
 	{
+		if(Input.GetKeyDown(KeyCode.Alpha1)) easterEggFlag = true; 
+
 		if(Input.GetKeyDown(KeyCode.R)) Reload.ReloadScene();
 
 		if(Input.GetKeyDown(KeyCode.Q)) hallwaySlider.value -= 0.05f;
@@ -48,5 +56,13 @@ public class ValueStore : MonoBehaviour
 
 		if(GameObject.FindGameObjectsWithTag("FloorMaker").Length == 0 && started)
 			foreach(Transform tile in tileList) tile.GetComponent<Tile>().SpawnWalls();
+
+		if(easterEggFlag && Input.GetKeyDown(KeyCode.Alpha0))
+		{
+			easterEggActive = true;
+			foreach(Transform tile in tileList) tile.GetComponent<Tile>().EasterEgg();
+		}
+		if(Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Alpha1))
+			easterEggFlag = false;
 	}
 }

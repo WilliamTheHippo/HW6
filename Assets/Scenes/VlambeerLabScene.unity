@@ -3733,6 +3733,8 @@ MonoBehaviour:
   started: 0
   maxTiles: 50
   tileList: []
+  easterEgg: {fileID: 21300000, guid: 2e917db6b7306443b94c8ad4598a8e2c, type: 3}
+  easterEggActive: 0
 --- !u!1 &1831845545
 GameObject:
   m_ObjectHideFlags: 0
