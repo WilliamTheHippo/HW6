@@ -9,7 +9,6 @@ public class FloorMaker : MonoBehaviour
 	public Transform floorPrefab;
 	public Transform floorMakerPrefab;
 	
-	public int maxTiles;
 	public static int GLOBAL_TILE_COUNT;
 
 	CameraZoom cameraZoom;
@@ -29,7 +28,7 @@ public class FloorMaker : MonoBehaviour
 
 	IEnumerator SpawnFloor()
 	{
-		while(myCounter < maxTiles && GLOBAL_TILE_COUNT <= 500)
+		while(myCounter < valueStore.maxTiles && GLOBAL_TILE_COUNT <= valueStore.maxTiles * 10)
 		{
 			float random = Random.Range(0f,1f);
 			float c = 0.38f - valueStore.hallwayChance;

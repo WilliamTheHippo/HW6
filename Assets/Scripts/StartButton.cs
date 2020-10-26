@@ -7,6 +7,7 @@ public class StartButton : MonoBehaviour
 {
 	//instances, not prefabs!
 	public GameObject[] thingsToStart;
+	public Slider[] stop;
 	Button button;
 
 	void Start()
@@ -25,6 +26,7 @@ public class StartButton : MonoBehaviour
 	void StartAll()
 	{
 		foreach(GameObject thing in thingsToStart) thing.SetActive(true);
+		foreach(Slider slider in stop) slider.interactable = false;
 		this.gameObject.SetActive(false);
 	}
 }

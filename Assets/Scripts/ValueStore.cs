@@ -8,11 +8,13 @@ public class ValueStore : MonoBehaviour
 	public Slider speedSlider;
 	public Slider hallwaySlider;
 	public Slider linearitySlider;
+	public Slider sizeSlider;
 
 	public float hallwayChance;
 	public float delay;
 	public float tileChance;
 	public bool started;
+	public int maxTiles;
 
 	public List<Transform> tileList;
 
@@ -26,6 +28,7 @@ public class ValueStore : MonoBehaviour
 	public void StoreDelay(float v) {delay=v;}
 	public void StoreTileChance(float v) {tileChance=v;}
 	public void SetStarted() {started = true;}
+	public void StoreSize(float v) {maxTiles = (int)v;}
 
 	public void Update()
 	{
@@ -39,6 +42,9 @@ public class ValueStore : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.A)) linearitySlider.value -= 0.01f;
 		if(Input.GetKeyDown(KeyCode.S)) linearitySlider.value += 0.01f;
+
+		if(Input.GetKeyDown(KeyCode.Z) && sizeSlider.interactable) sizeSlider.value -= 20;
+		if(Input.GetKeyDown(KeyCode.X) && sizeSlider.interactable) sizeSlider.value += 20;
 
 		if(GameObject.FindGameObjectsWithTag("FloorMaker").Length == 0 && started)
 			foreach(Transform tile in tileList) tile.GetComponent<Tile>().SpawnWalls();
