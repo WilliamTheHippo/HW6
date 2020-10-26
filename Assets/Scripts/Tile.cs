@@ -8,10 +8,10 @@ public class Tile : MonoBehaviour
 
 	public void SpawnWalls()
 	{
-		RaycastHit2D up = Physics2D.Raycast(transform.position, transform.up * 0.8f);
-		RaycastHit2D down = Physics2D.Raycast(transform.position, -transform.up * 0.8f);
-		RaycastHit2D left = Physics2D.Raycast(transform.position, -transform.right * 0.8f);
-		RaycastHit2D right = Physics2D.Raycast(transform.position, transform.right * 0.8f);
+		RaycastHit2D up = Physics2D.Raycast(transform.position, transform.up, 0.8f);
+		RaycastHit2D down = Physics2D.Raycast(transform.position, -transform.up, 0.8f);
+		RaycastHit2D left = Physics2D.Raycast(transform.position, -transform.right, 0.8f);
+		RaycastHit2D right = Physics2D.Raycast(transform.position, transform.right, 0.8f);
 		if(up.collider == null)
 			Instantiate(wallPrefab, transform.position + transform.up/2, Quaternion.identity);
 		if(down.collider == null)
